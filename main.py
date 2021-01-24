@@ -107,30 +107,30 @@ def quitter():
 
 
 
-def combat():
-    print(" 1 : Attaque")
-    print(" 2 : Defense")
-    print(" 3 : Inventaire")
-    print(" 4 : Fuite")
-    choix = int(input("> "))
-
-    if choix == 1:
-        attaque()
-        attaque_monstre()
-        fin_combat()
-
-
-    if choix == 2:
-        tg() #pour éviter l'erreur d'indent
-
-    if choix == 3:
-        inventaire()
-
-    if choix == 4:
-        fuite()
-
-    else:
-        combat()
+# def combat():
+#     print(" 1 : Attaque")
+#     print(" 2 : Defense")
+#     print(" 3 : Inventaire")
+#     print(" 4 : Fuite")
+#     choix = int(input("> "))
+#
+#     if choix == 1:
+#         attaque()
+#         attaque_monstre()
+#         fin_combat()
+#
+#
+#     if choix == 2:
+#         tg() #pour éviter l'erreur d'indent
+#
+#     if choix == 3:
+#         inventaire()
+#
+#     if choix == 4:
+#         fuite()
+#
+#     else:
+#         combat()
 
 def Debut_de_partie():
     p = robot()
@@ -198,35 +198,27 @@ def deplacement():
           "Vers le Sud \n"
           "Vers l'Ouest \n"
           )
-    choix = input(">")
-
-    if choix == "nord" and "Nord" :
-        Nord()
-
-    elif choix == "est" and "Est":
-        Est()
-
-    elif choix == "sud" and "Sud":
-        Sud()
-
-    elif choix == "ouest" and "Ouest":
-        Ouest()
-
-    while choix != "nord" and "Nord" or "est" and "Est" or "sud" and "Sud" or "ouest" and "Ouest" :
-        print("Tu dois écrire une direction si tu veux avancer dans l'aventure (ex: nord)")
+    choix_valide = False
+    while not choix_valide:
         choix = input(">")
 
-        if choix == "nord" and "Nord" :
+        if choix.lower() == "nord":
+            choix_valide = True
             Nord()
 
-        elif choix == "est" and "Est":
+        elif choix.lower() == "est":
+            choix_valide = True
             Est()
 
-        elif choix == "sud" and "Sud":
+        elif choix.lower() == "sud":
+            choix_valide = True
             Sud()
 
-        elif choix == "ouest" and "Ouest":
+        elif choix.lower() == "ouest":
+            choix_valide = True
             Ouest()
+        else:
+            print("Tu dois écrire une direction si tu veux avancer dans l'aventure (ex: nord)")
 
 def Nord():
     print("Vous vous dirigez vers le Nord et arrivez #emplacement")
@@ -240,7 +232,6 @@ def Sud():
 def Ouest():
     print("Vous vous dirigez vers le Ouest et arrivez #emplacement")
 #etc...
-
 
 #_______________________________________________________________________________________________________________________
 
